@@ -19,5 +19,10 @@ pipeline {
         '''
       }
     }
+    stage('Certificate Successfully Generated') {
+      steps {
+        echo 'Certificate Successfully Generated!'
+      }
+    }
   }
 }
