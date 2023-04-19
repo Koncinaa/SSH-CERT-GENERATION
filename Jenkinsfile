@@ -16,6 +16,7 @@ pipeline {
       steps {
         sh '''
           ssh-keygen -y -t ${SSH_TYPE} -b ${SSH_BITS} -N "" -f "/var/lib/jenkins/.ssh/id_rsa"
+          echo "test"
         '''
       }
     }
