@@ -7,7 +7,7 @@ pipeline {
         checkout([
           $class: 'GitSCM',
           branches: [[name: '*/master']],
-          userRemoteConfigs: [[url: '${Github}']]
+          userRemoteConfigs: [[url: 'https://github.com/Koncinaa/SSH-CERT-GENERATION.git']]
         ])
       }
     }
