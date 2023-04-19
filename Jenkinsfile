@@ -8,24 +8,20 @@ pipeline {
                     properties([
                         parameters([
                             choice(
-                                choices: ['ONE', 'TWO'], 
-                                name: 'PARAMETER_01'
+                                choices: ['rsa'], 
+                                name: 'SSH_TYPE'
                             ),
-                            booleanParam(
-                                defaultValue: true, 
-                                description: '', 
-                                name: 'BOOLEAN'
-                            ),
-                            text(
-                                defaultValue: '''
-                                this is a multi-line 
-                                string parameter example
-                                ''', 
-                                 name: 'MULTI-LINE-STRING'
+                            choice(
+                                choices: ['2048'],
+                                name: 'SSH_BITS'
                             ),
                             string(
-                                defaultValue: 'scriptcrunch', 
-                                name: 'STRING-PARAMETER', 
+                                defaultValue: '', 
+                                name: 'PASSPHRASE', 
+                                trim: true
+                            string(
+                                defaultValue: '', 
+                                name: 'SSH_NAME', 
                                 trim: true
                             )
                         ])
@@ -33,6 +29,7 @@ pipeline {
                 }
             }
         }
+    
     stage('Checkout from Git') {
       steps {
         checkout([
@@ -48,6 +45,7 @@ pipeline {
         sh 'ssh-keygen -t ${SSH_TYPE} -b ${SSH_BITS} -N "${PASSPHRASE}" -f "/var/lib/jenkins/.ssh/${SSH_NAME}"'
       }
     }
+    
     stage('Certificate Successfully Generated') {
       steps {
         echo 'Certificate Successfully Generated!'
