@@ -15,7 +15,7 @@ pipeline {
     stage('Generate New Certificate') {
       steps {
         sh '''
-          ssh-keygen -t ${SSH_TYPE} -b ${SSH_BITS} -N "${PASSPHRASE}"
+          ssh-keygen -t '${SSH_TYPE}' -b '${SSH_BITS}' -N "${PASSPHRASE}"
         '''
       }
     }
