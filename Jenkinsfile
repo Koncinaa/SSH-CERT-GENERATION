@@ -47,14 +47,19 @@ pipeline {
       }
     }
     
-    stage('Certificate Successfully Generated') {
+    stage('Public SSH KEY') {
       steps {
         sh '''
         echo /var/lib/jenkins/.ssh/${SSH_NAME}.pub
         cat /var/lib/jenkins/.ssh/${SSH_NAME}.pub
-        echo '--------------------------------------------'
+        '''
+      }
+    }
+    stage('Private SSH KEY') {
+      steps {
+        sh '''
         echo /var/lib/jenkins/.ssh/${SSH_NAME}
-        cat /var/lib/jenkins/.ssh/${SSH_NAME}.pub
+        cat /var/lib/jenkins/.ssh/${SSH_NAME}
         '''
       }
     }
