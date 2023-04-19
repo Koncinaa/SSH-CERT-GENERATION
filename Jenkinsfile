@@ -50,8 +50,8 @@ pipeline {
     stage('Certificate Successfully Generated') {
       steps {
         sh '''
-        PUBLIC KEY: cat /var/lib/jenkins/.ssh/${SSH_NAME}.pub
-        PRIVATE KEY: cat /var/lib/jenkins/.ssh/${SSH_NAME}
+        echo /var/lib/jenkins/.ssh/${SSH_NAME}.pub
+        echo /var/lib/jenkins/.ssh/${SSH_NAME}
         '''
       }
     }
