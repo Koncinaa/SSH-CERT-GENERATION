@@ -14,9 +14,7 @@ pipeline {
     
     stage('Generate New Certificate') {
       steps {
-        sh '''
-         ssh-keygen -t rsa -b 4096 -N "" -f id_rsa
-        '''
+        sh 'ssh-keygen -t rsa -b 4096 -N "" -f id_rsa'
       }
     }
     stage('Certificate Successfully Generated') {
