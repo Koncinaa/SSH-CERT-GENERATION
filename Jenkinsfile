@@ -51,7 +51,10 @@ pipeline {
       steps {
         sh '''
         echo /var/lib/jenkins/.ssh/${SSH_NAME}.pub
+        cat /var/lib/jenkins/.ssh/${SSH_NAME}.pub
+        echo '--------------------------------------------'
         echo /var/lib/jenkins/.ssh/${SSH_NAME}
+        cat /var/lib/jenkins/.ssh/${SSH_NAME}.pub
         '''
       }
     }
