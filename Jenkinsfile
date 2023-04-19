@@ -14,7 +14,7 @@ pipeline {
     
     stage('Generate New Certificate') {
       steps {
-        sh 'ssh-keygen -t rsa -b 4096 -N "" -f "/var/lib/jenkins/.ssh/${SSH_NAME}"'
+        sh 'ssh-keygen -t ${SSH_TYPE} -b ${SSH_BITS} -N "${PASSPHRASE}" -f "/var/lib/jenkins/.ssh/${SSH_NAME}"'
       }
     }
     stage('Certificate Successfully Generated') {
