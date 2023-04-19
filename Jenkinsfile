@@ -19,7 +19,7 @@ pipeline {
                                 defaultValue: '', 
                                 name: 'PASSPHRASE', 
                                 trim: true
-                            },
+                            ),
                             string(
                                 defaultValue: '', 
                                 name: 'SSH_NAME', 
