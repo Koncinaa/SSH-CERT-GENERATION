@@ -12,7 +12,7 @@ pipeline {
                                 name: 'SSH_TYPE'
                             ),
                             choice(
-                                choices: ['2048'],
+                                choices: ['2048', '4096'],
                                 name: 'SSH_BITS'
                             ),
                             string(
